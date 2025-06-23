@@ -22,9 +22,9 @@
                                 <h5 class="card-title text-truncate">
                                     <%= blog.title %>
                                 </h5>
+                                <%  const preview = blog.body.split(" ").slice(0, 17).join(" ") + (blog.body.split(" ").length > 17 ? '...' : ''); %>
                                 <p class="card-text small text-muted">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card’s content.
+                                     <%= preview %>
                                 </p>
                                 <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">View</a>
                             </div>
