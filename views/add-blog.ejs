@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head") %>
+        <title>Add Blog</title>
+</head>
+
+<body>
+    <%- include("partials/navbar") %>
+
+        <div class="container mt-4">
+            <form action="/blog/add-blog" method="POST" enctype="multipart/form-data" id="uploadForm">
+
+                <div class="mb-3">
+                    <label for="fileInput" class="form-label">Cover Image</label>
+                    <input type="file" class="form-control" id="fileInput" aria-describedby="file" name="coverImage" required>
+                    <p id="error" class="text-danger"></p>
+
+                    <% if (locals.err) { %>
+                        <p class="text-danger">
+                            <%= err %>
+                        </p>
+                        <%} %>
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="title" name="title" required>
+                </div>
+
+                <div class="form-floating">
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="body" required></textarea>
+                    <label for="floatingTextarea2">Blog Content</label>
+                </div>
+                <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <%- include("partials/script") %>
+
+            <script>
+                const allowedType = ["image/jpeg", 'image/png', 'image/jpg']
+                const form = document.getElementById("uploadForm")
+                let fileInput = document.getElementById("fileInput")
+
+                fileInput.addEventListener("change", validateUserInput)
+                form.addEventListener("submit", function (e) {
+                    const isValid = validateUserInput(e)
+                    if (!isValid)
+                        e.preventDefault()
+                })
+
+                function validateUserInput() {
+                    const file = fileInput.files[0]; // ✅ separate file variable
+                    const error = document.getElementById("error");
+
+                    if (!file) return false; // block empty file on submit
+
+                    if (!allowedType.includes(file.type)) {
+                        error.textContent = "❌ File type not allowed. Only JPG/PNG are accepted.";
+                        error.classList.add("remove");
+
+                        setTimeout(() => {
+                            error.textContent = "";
+                            error.classList.remove("remove");
+                            fileInput.value = ""; // ✅ now fileInput still refers to the DOM element
+                        }, 3000);
+
+                        return false; // ❌ Don't allow submission
+                    } else {
+                        error.textContent = "";
+                        return true;
+                    }
+                }
+
+
+            </script>
+</body>
+
+</html>
