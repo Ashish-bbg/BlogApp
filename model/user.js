@@ -54,8 +54,12 @@ function hashPassword(password, secret) {
 
 userSchema.static("matchPasswordAndGenerateToken", async function (email, password) {
     const user = await User.findOne({ email }).select("+password +salt")
-    if (!user)
+    // console.log("This",user);
+    
+    if (!user){
         throw new Error("User Not Found!")
+
+    }
     const secret = user.salt
     const hashPass = hashPassword(password, secret)
 

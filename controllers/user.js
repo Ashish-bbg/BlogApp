@@ -44,7 +44,7 @@ async function handleUserSignin(req, res) {
 
     } catch (error) {
         return res.render("signin", {
-            error: "Incorrect Email or Password",
+            error: error.message,
         })
     }
 }
