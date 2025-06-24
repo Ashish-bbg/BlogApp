@@ -13,16 +13,16 @@
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp"
-                        name="fullName">
+                        name="fullName" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="email">
+                        name="email" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
                 </div>
                 <% if (locals.err) { %>
                     <p><%= err %></p>

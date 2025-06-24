@@ -72,4 +72,3 @@ npm start
 
 🙌 Author
 Ashish Singh
-🔗 Visit Live App
