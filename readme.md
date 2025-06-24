@@ -9,7 +9,7 @@ A full-stack Blog Application built with **Node.js**, **Express**, **MongoDB Atl
 ## 🌟 Features
 
 - 🔐 User Authentication (Login & Signup)
-- ✍️ Create, Edit, Delete Blog Posts
+- ✍️ Create Blog Posts
 - 🖼️ Upload blog cover images (Cloudinary)
 - 💬 Comment on blog posts
 - 📦 MongoDB Atlas for data storage

@@ -12,7 +12,7 @@ const blogSchema = new Schema({
     },
     coverImage: {
         type: String,
-        default: "/coverImages/default.png",
+        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49g5L-ge_gWmBsWFAH40JtRyPrmazJ-_UP4TF_GcA9_Qkx8mqos6GXsCqFipUmQrblM8&usqp=CAU",
     },
     createdBy: {
         type: Schema.Types.ObjectId,

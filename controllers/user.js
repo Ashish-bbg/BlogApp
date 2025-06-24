@@ -2,6 +2,12 @@ const { User } = require("../model/user");
 
 async function handleUserSignup(req, res) {
     const { fullName, email, password } = req.body
+    if (!fullName || !email || !password) {
+        return res.status(400).render("signup", {
+            err: "❌ All fields are required."
+        })
+    }
+
     await User.create({
         fullName,
         email,
@@ -21,6 +27,12 @@ async function handleUserSignup(req, res) {
 async function handleUserSignin(req, res) {
     const { email, password } = req.body
     // console.log("User Signin Successfully..");
+    if (!email || !password) {
+        return res.status(400).render("signin", {
+            err: "❌ All fields are required."
+
+        })
+    }
     try {
         const token = await User.matchPasswordAndGenerateToken(email, password)
         res.cookie("token", token, {
