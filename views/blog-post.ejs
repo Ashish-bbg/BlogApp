@@ -71,7 +71,7 @@
             <% comments.forEach(comment=> { %>
                 <div class="d-flex align-items-start gap-3 py-3 border-bottom">
                     <!-- Profile Image -->
-                    <img src="<%= comment.createdBy?.profileImageUrl || "/images/default.png" %>" alt="Profile Image"
+                    <img src="<%= comment.createdBy.profileImageUrl %>" alt="Profile Image"
                         class="rounded-circle border" width="48" height="48" style="object-fit: cover;">
 
                     <!-- Comment Content -->
