@@ -17,6 +17,10 @@ const blogSchema = new Schema({
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    cnt:{
+        type: Number,
+        default: 0,
     }
 
 

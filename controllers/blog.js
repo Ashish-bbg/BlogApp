@@ -21,8 +21,10 @@ async function handleAddBlog(req, res) {
 async function handleGetPostById(req, res) {
     const id = req.params.id
     const blog = await Blog.findById(id).populate("createdBy")
+    await blog.updateOne({$inc:{cnt:1}})
     const comments = await Comment.find({blogId: id}).populate("createdBy")
-    
+    console.log(blog);
+    // Blog.findByIdAndUpdate({cnt})
     // const createdAt = blog.createdAt.toDateString() +" "+ blog.createdAt.toLocaleTimeString()
     const createdAt = blog?.createdAt?.toDateString() || "Unkonwn date"
     // const createdAt = blog.createdAt
