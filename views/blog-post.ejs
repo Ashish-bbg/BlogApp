@@ -45,7 +45,7 @@
                         <form action="/blog/comment/<%= blog._id %>" method="post">
                             <div class="d-flex align-items-start gap-3 mb-3">
                                 <!-- User Avatar (Optional) -->
-                                <img src="<%= user?.profileImageUrl || "/images/default.png" %>" alt="User Avatar"
+                                <img src="<%= user.profileImageUrl %>" alt="User Avatar"
                                 class="rounded-circle" width="48" height="48" style="object-fit: cover;">
 
                                 <!-- Input Field -->
