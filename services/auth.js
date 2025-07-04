@@ -8,7 +8,7 @@ function generateCookieToken(user) {
         _id: user._id,
         fullName: user.fullName,
         email: user.email,
-        profileImageURL: user.profileImageUrl,
+        profileImageUrl: user.profileImageUrl,
         role: user.role
     }
 
