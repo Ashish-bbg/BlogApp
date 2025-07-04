@@ -22,6 +22,7 @@ app.set("views", path.join(__dirname, "views"))
 // middlewares
 app.use(express.static("./public"))
 // app.use(express.static(path.resolve("./public")))
+app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -30,7 +31,6 @@ app.use(session({
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser())
 app.use(checkForAuthentication())
 
 // routes
